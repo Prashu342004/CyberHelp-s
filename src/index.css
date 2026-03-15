@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 40% 10%;
+    --foreground: 230 20% 96%;
+
+    --card: 230 35% 12%;
+    --card-foreground: 230 20% 96%;
+
+    --popover: 230 35% 12%;
+    --popover-foreground: 230 20% 96%;
+
+    --primary: 228 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 25% 16%;
+    --secondary-foreground: 230 20% 96%;
+
+    --muted: 230 15% 22%;
+    --muted-foreground: 230 10% 55%;
+
+    --accent: 185 60% 65%;
+    --accent-foreground: 230 40% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
+    --ring: 228 80% 60%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 230 35% 8%;
+    --sidebar-foreground: 230 20% 96%;
+    --sidebar-primary: 228 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 25% 16%;
+    --sidebar-accent-foreground: 230 20% 96%;
+    --sidebar-border: 230 20% 18%;
+    --sidebar-ring: 228 80% 60%;
+
+    /* Custom tokens */
+    --glow-primary: 228 80% 60%;
+    --glow-accent: 185 60% 65%;
+    --surface-glass: rgba(255, 255, 255, 0.03);
+    --surface-glass-hover: rgba(255, 255, 255, 0.06);
+    --border-gradient: linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(255,255,255,0));
+    --shadow-card: 0 0 0 1px rgba(255,255,255,0.05), 0 20px 40px -20px rgba(0,0,0,0.5);
+    --shadow-glow: 0 0 30px -10px hsl(228 80% 60% / 0.3);
+    --grid-dot: rgba(255,255,255,0.04);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Public Sans', system-ui, sans-serif;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', system-ui, sans-serif;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Sora', system-ui, sans-serif;
+  }
+
+  .font-mono-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.65rem;
+  }
+
+  .glass-panel {
+    background: var(--surface-glass);
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(12px);
+  }
+
+  .glass-panel-hover {
+    background: var(--surface-glass-hover);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .grid-bg {
+    background-image: radial-gradient(circle, var(--grid-dot) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(255,255,255,0)) 1;
+  }
+}
